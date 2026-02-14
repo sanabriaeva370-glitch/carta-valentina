@@ -108,6 +108,15 @@ img{
 
 <div class="container">
 
+    <!-- iframe oculto para música -->
+    <iframe 
+    id="musica"
+    width="0"
+    height="0"
+    frameborder="0"
+    allow="autoplay">
+    </iframe>
+
     <div id="inicio">
         <h1>Valentina ❤️</h1>
         <button onclick="abrirCarta()">Ábreme 💌</button>
@@ -123,18 +132,9 @@ img{
 
 </div>
 
-<!-- VIDEO OCULTO -->
-<iframe 
-width="0" 
-height="0" 
-src="https://www.youtube.com/embed/yI-bkEe55DQ?autoplay=1&loop=1&playlist=yI-bkEe55DQ"
-frameborder="0"
-allow="autoplay">
-</iframe>
-
 <script>
 
-/* TEXTO COMPLETO */
+/* MENSAJE */
 const mensaje = `Querida Valentina,
 
 Espero que este día sea verdaderamente especial para ti. Sin importar si lo pasas rodeada de amigos, con tu familia o simplemente disfrutando de tu tiempo, mi único deseo es que seas muy feliz.
@@ -156,17 +156,22 @@ function escribirTexto(){
     if(i < mensaje.length){
         document.getElementById("texto").innerHTML += mensaje.charAt(i);
         i++;
-        setTimeout(escribirTexto, 60); // velocidad escritura
+        setTimeout(escribirTexto, 60); // escritura más lenta y romántica
     }
 }
 
 function abrirCarta(){
     document.getElementById("inicio").style.display="none";
     document.getElementById("carta").style.display="block";
+
+    // activar música en celular
+    document.getElementById("musica").src =
+    "https://www.youtube.com/embed/yI-bkEe55DQ?autoplay=1&loop=1&playlist=yI-bkEe55DQ";
+
     escribirTexto();
 }
 
-/* corazones suaves */
+/* corazones */
 function crearCorazon(){
     const heart=document.createElement("div");
     heart.className="heart";
